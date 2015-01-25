@@ -27,7 +27,7 @@ tiled for you already, and is to be found in ``nyuvm/static/tiles``.
 
 In the Django admin, create a new Slide:
 
-* ``URL to slide directory:``: *http://localhost:8000/static/tiles*
+* ``URL to slide directory:``: *http://localhost:8000/static/auraya*
 * ``Label``: whatever you like
 * ``Maximum Google Zoom Level``: ``4``
 
