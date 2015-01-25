@@ -253,6 +253,8 @@ def CreateMarker(request, collectionslideid):
 			newmarker.lat = request.POST["lat"]
 			newmarker.lng = request.POST["lng"]
 			newmarker.zoom = request.POST["zoom"]
+			if "label" in request.POST:
+				newmarker.label = request.POST["label"]
 			
 			#community markers are private by default
 			if (request.user not in collectionslide.collection.authors.all()):
@@ -299,6 +301,7 @@ def EditMarkerSubmit(request, slidemarkerid):
 	slidemarker = SlideMarker.objects.get(id = slidemarkerid)
 	if (request.user in slidemarker.slide_markers.all()[0].collection.authors.all()) or request.user.is_superuser or (request.user == slidemarker.author):	
 		slidemarker.type = request.POST["markertypeinput"]
+		print slidemarker.type
 		slidemarker.label = request.POST["markerlabelinput"]
 		slidemarker.html = request.POST["markerhtmlinput"]
 	slidemarker.save()
