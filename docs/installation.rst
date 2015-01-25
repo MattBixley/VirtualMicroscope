@@ -12,18 +12,42 @@ To install::
     source env/bin/activate  # activate it
     pip install -e .  # run setup.py and install required components
 
-This repository includes a demo project, so we'll use that to get started.
 
-Create your local database - you will need superuser access, so create a superuser when asked,
-and start up the Python runserver::
+*******************
+Set up the database
+*******************
 
-    python manage.py syncdb
+This repository includes demo images and a database in JSON format, so we'll use those to get
+started.
+
+Create your local database, and import the serialised JSON data::
+
+    python manage.py syncdb --noinput  # noinput will prevent it asking for superuser details
+    python manage.py loaddata example_database.json
     python manage.py runserver
 
-Assuming you're running on localhost on port 8000, visit ``http://localhost:8000/admin/`` and login.
+Assuming you're running on localhost on port 8000, visit ``http://localhost:8000/admin/`` and
+login::
 
-Just to prove this works, we'll use the included image in the demo project. That image has been
-tiled for you already, and is to be found in ``nyuvm/static/tiles``.
+    ``username``: *vm*
+    ``pasword``: *vm*
+
+*****************
+View a demo image
+*****************
+
+Visit ``http://localhost:8000/virtualmicroscope``. From *Collections*, choose *Demo images*, then
+select *Hackday people*.
+
+And that's it - now you can zoom in and out on people at the HackDay event; our team's the one
+at the bottom right.
+
+*****************
+Add a tiled image
+*****************
+
+We've included a second tiled image, but you need to add this yourself. That image has been
+tiled for you already, and is to be found in ``virtualmicroscope/static/auraya``.
 
 In the Django admin, create a new Slide:
 
@@ -42,4 +66,4 @@ Visit ``http://localhost:8000/virtualmicroscope``.
 
 Choose your Collection from the *Collections* menu, and choose your slide below.
 
-And that's it - now you can zoom in and out on Auraya the dog; you have a working implementation.
+And that's it - now you can zoom in and out on Auraya the dog.
