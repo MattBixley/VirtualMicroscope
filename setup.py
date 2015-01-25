@@ -12,7 +12,6 @@ setup(
     packages=['virtualmicroscope','nyuvm'],
     urls = 'https://github.com/evildmp/VirtualMicroscope/tree/hackday',
     license ='The MIT License (MIT)',
-    long_description = open('README.txt').read(),
+    long_description = open('README.md').read(),
     install_requires = REQUIREMENTS
-    # long_description=open('README.txt').read(),
 )
